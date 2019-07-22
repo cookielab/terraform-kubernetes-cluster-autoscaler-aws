@@ -47,7 +47,7 @@ variable "kubernetes_deployment_image_registry" {
 
 variable "kubernetes_deployment_image_tag" {
   type = string
-  default = "v1.15.0"
+  default = "v1.15.1"
 }
 
 variable "kubernetes_deployment_node_selector" {
