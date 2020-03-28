@@ -20,5 +20,7 @@ locals {
     "--skip-nodes-with-local-storage=${var.skip_nodes_with_local_storage ? "false" : "true"}",
     "--expander=${var.expander}",
     "--node-group-auto-discovery=asg:tag=${join(",", var.asg_tags)}",
+    "--balance-similar-node-groups",
+    "--skip-nodes-with-system-pods=false",
   ]
 }
