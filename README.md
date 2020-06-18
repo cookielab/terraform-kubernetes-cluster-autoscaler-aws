@@ -19,7 +19,7 @@ data "aws_iam_role" "kubernetes_worker_node" {
 
 module "kubernetes_dashboard" {
   source = "cookielab/cluster-autoscaler-aws/kubernetes"
-  version = "0.9.0"
+  version = "0.10.0"
 
   aws_iam_role_for_policy = data.aws_iam_role.kubernetes_worker_node.name
 
@@ -28,6 +28,6 @@ module "kubernetes_dashboard" {
     "k8s.io/cluster-autoscaler/${var.kubernetes_cluster_name}",
   ]
 
-  kubernetes_deployment_image_tag = "v1.14.7" # v1.14.x is for kubernetes 1.14.x
+  kubernetes_deployment_image_tag = "v1.16.0" # v1.16.0 is for kubernetes 1.16.x
 }
 ```

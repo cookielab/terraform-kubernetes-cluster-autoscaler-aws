@@ -73,3 +73,9 @@ variable "aws_iam_role_for_policy" {
   default = null
   description = "AWS IAM Role name for attaching AWS IAM policy."
 }
+
+variable "additional_kubernetes_cluster_roles" {
+  type = list
+  default = []
+  description = "Additional rules to append to Kubernetes cluster roles."
+}

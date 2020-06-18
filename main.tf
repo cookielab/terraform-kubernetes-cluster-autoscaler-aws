@@ -69,7 +69,7 @@ resource "kubernetes_cluster_role" "cluster_autoscaler" {
 
   rule {
     api_groups = ["storage.k8s.io"]
-    resources = ["storageclasses"]
+    resources = ["storageclasses","csinodes"]
     verbs = ["watch", "list", "get"]
   }
 
@@ -77,6 +77,15 @@ resource "kubernetes_cluster_role" "cluster_autoscaler" {
     api_groups = ["batch", "extensions"]
     resources = ["jobs"]
     verbs = ["get", "list", "watch", "patch"]
+  }
+
+  dynamic "rule" {
+    for_each = var.additional_kubernetes_cluster_roles
+    content {
+      api_groups = rule.value.api_groups
+      resources = rule.value.resources
+      verbs = rule.value.verbs
+    }
   }
 }
 
