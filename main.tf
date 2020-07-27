@@ -172,6 +172,8 @@ resource "kubernetes_deployment" "cluster_autoscaler" {
       spec {
         service_account_name = kubernetes_service_account.cluster_autoscaler.metadata.0.name
 
+        priority_class_name = var.kubernetes_priority_class_name
+
         container {
           image = local.kubernetes_deployment_image
           name = "cluster-autoscaler"
