@@ -28,6 +28,12 @@ variable "kubernetes_namespace_create" {
   description = "Do you want to create kubernetes namespace?"
 }
 
+variable "kubernetes_priority_class_name" {
+  description = "Priority class for autoscaler deployment"
+  type        = string
+  default     = null
+}
+
 variable "kubernetes_resources_name_prefix" {
   type = string
   default = ""
