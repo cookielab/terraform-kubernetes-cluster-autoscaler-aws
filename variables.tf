@@ -73,3 +73,9 @@ variable "aws_iam_role_for_policy" {
   default = null
   description = "AWS IAM Role name for attaching AWS IAM policy."
 }
+
+variable "additional_autoscaler_options" {
+  type        = list(string)
+  default     = []
+  description = "Additional options to pass to the autoscaler command."
+}
