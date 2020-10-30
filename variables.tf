@@ -85,3 +85,9 @@ variable "additional_autoscaler_options" {
   default     = []
   description = "Additional options to pass to the autoscaler command."
 }
+
+variable "kubernetes_deployment_annotations" {
+  type = map(string)
+  default = {}
+  description = "Annotations for pod template"
+}
