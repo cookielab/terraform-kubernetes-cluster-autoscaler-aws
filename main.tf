@@ -85,6 +85,7 @@ resource "kubernetes_cluster_role" "cluster_autoscaler" {
   }
   rule {
     api_groups = ["coordination.k8s.io"]
+    resource_names = ["cluster-autoscaler"]
     resources = ["leases"]
     verbs = ["get", "update"]
   }
