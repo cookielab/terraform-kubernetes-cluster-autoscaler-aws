@@ -183,11 +183,11 @@ resource "kubernetes_deployment" "cluster_autoscaler" {
           resources {
             limits = {
               cpu    = "100m"
-              memory = "512Mi"
+              memory = "768Mi"
             }
             requests = {
               cpu    = "100m"
-              memory = "512Mi"
+              memory = "768Mi"
             }
           }
 
