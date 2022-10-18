@@ -198,13 +198,13 @@ resource "kubernetes_deployment" "cluster_autoscaler" {
             mount_path = "/etc/ssl/certs/ca-certificates.crt"
             read_only  = true
           }
-
-          volume_mount {
-            # hack for automountServiceAccountToken
-            name       = kubernetes_service_account.cluster_autoscaler.default_secret_name
-            mount_path = "/var/run/secrets/kubernetes.io/serviceaccount"
-            read_only  = true
-          }
+          # looks like not needed anymore
+          #          volume_mount {
+          #            # hack for automountServiceAccountToken
+          #            name       = kubernetes_service_account.cluster_autoscaler.default_secret_name
+          #            mount_path = "/var/run/secrets/kubernetes.io/serviceaccount"
+          #            read_only  = true
+          #          }
 
           image_pull_policy = "Always"
         }
@@ -215,14 +215,14 @@ resource "kubernetes_deployment" "cluster_autoscaler" {
             path = "/etc/ssl/certs/ca-bundle.crt"
           }
         }
-
-        volume {
-          # hack for automountServiceAccountToken
-          name = kubernetes_service_account.cluster_autoscaler.default_secret_name
-          secret {
-            secret_name = kubernetes_service_account.cluster_autoscaler.default_secret_name
-          }
-        }
+        # looks like not needed anymore
+        #        volume {
+        #          # hack for automountServiceAccountToken
+        #          name = kubernetes_service_account.cluster_autoscaler.default_secret_name
+        #          secret {
+        #            secret_name = kubernetes_service_account.cluster_autoscaler.default_secret_name
+        #          }
+        #        }
 
         node_selector = var.kubernetes_deployment_node_selector
       }
