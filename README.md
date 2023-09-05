@@ -28,6 +28,6 @@ module "kubernetes_dashboard" {
     "k8s.io/cluster-autoscaler/${var.kubernetes_cluster_name}",
   ]
 
-  kubernetes_deployment_image_tag = "v1.14.7" # v1.14.x is for kubernetes 1.14.x
+  kubernetes_deployment_image_tag = "v1.26.2" # v1.26.x is for kubernetes 1.26.x
 }
 ```
